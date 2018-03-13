@@ -1,0 +1,20 @@
+@OData.publish : true
+context SampleService {
+
+	entity Customer{
+	key CustomerID : Integer;
+    key Type : String(20);
+	CustomerName : String(100);
+	Premium : Boolean;
+    CustAddress  : Address;
+    };
+    
+    type Address{
+    Street : String(100);
+    Area : String(100);
+    City : String(30);
+    State : String(30);
+    Country : String(100);
+    };
+	
+};

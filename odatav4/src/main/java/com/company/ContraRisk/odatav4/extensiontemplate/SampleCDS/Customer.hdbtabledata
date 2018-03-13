@@ -1,0 +1,39 @@
+{ 
+  "format_version": 1, 
+  "imports": 
+  [ 
+	{ 
+		"target_table": "SampleService.Customer", 
+		"source_data" : { 
+							"data_type" : "CSV", 
+							"file_name" : "Customer.csv", 
+							"has_header" : false
+		}, 
+		"import_settings" : { 
+								"import_columns" : [ 
+									"CustomerID", 
+									"Type",
+									"CustomerName",
+									"Premium",
+									"CustAddress.Street",
+									"CustAddress.Area",
+									"CustAddress.City",
+									"CustAddress.State",
+									"CustAddress.Country"
+									]
+							}, 
+		"column_mappings" : { 
+									"CustomerID" : 1, 
+									"Type"  : 2,
+									"CustomerName" : 3,
+									"Premium" : 4,
+									"CustAddress.Street" : 5,
+									"CustAddress.Area" : 6,
+									"CustAddress.City" : 7,
+									"CustAddress.State" : 8,
+									"CustAddress.Country" : 9
+							} 
+		} 
+  ] 
+}
+
