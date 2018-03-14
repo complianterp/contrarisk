@@ -1,7 +1,7 @@
 {
  "format_version": 1,
  "imports": [{
-  "target_table": "contrarisk.db::ruleSet.MODULE",
+  "target_table": "contrarisk.db::ruleset.MODULE",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::01Module.csv",
@@ -16,7 +16,7 @@
 	
  
  {
-  "target_table": "contrarisk.db::ruleSet.SUB_MODULE",
+  "target_table": "contrarisk.db::ruleset.SUB_MODULE",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::02SubModule.csv",
@@ -31,7 +31,7 @@
  }, 
 
  {
-  "target_table": "contrarisk.db::ruleSet.PROCESSES",
+  "target_table": "contrarisk.db::ruleset.PROCESSES",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::03Processes.csv",
@@ -47,7 +47,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.SUB_PROCESSES",
+  "target_table": "contrarisk.db::ruleset.SUB_PROCESSES",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::04SubProcesses.csv",
@@ -63,7 +63,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.TSTC",
+  "target_table": "contrarisk.db::ruleset.TSTC",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::05Tstc.csv",
@@ -79,7 +79,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.TOBJT",
+  "target_table": "contrarisk.db::ruleset.TOBJT",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::06Tobjt.csv",
@@ -95,7 +95,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.CUSTOMERS",
+  "target_table": "contrarisk.db::ruleset.CUSTOMERS",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::07Customers.csv",
@@ -111,7 +111,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.LOGICAL_SYSTEMS",
+  "target_table": "contrarisk.db::ruleset.LOGICAL_SYSTEMS",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::08LogicalSystems.csv",
@@ -127,7 +127,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.USERS",
+  "target_table": "contrarisk.db::ruleset.USERS",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::09Users.csv",
@@ -143,7 +143,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.RULE_SET",
+  "target_table": "contrarisk.db::ruleset.RULE_SET",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::10RuleSet.csv",
@@ -159,7 +159,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.ACTIVITY",
+  "target_table": "contrarisk.db::ruleset.ACTIVITY",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::11Activity.csv",
@@ -173,7 +173,7 @@
   "column_mappings": {"ACT_ID": 1,"ACT_NAME": 2,"RS_ID": 3,"ACTIVE": 4,"SEVERITY": 5,"MODULE_ID": 6,"SUB_MODULE_ID": 7,"OWNER": 8,"PROCESS_ID": 9,"SUB_PROCESS_ID": 10,"WORKFLOW_FLAG": 11}
  },
 {
-  "target_table": "contrarisk.db::ruleSet.ACT_TCODE",
+  "target_table": "contrarisk.db::ruleset.ACT_TCODE",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::12ActTcode.csv",
@@ -189,7 +189,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.ACT_AUTH",
+  "target_table": "contrarisk.db::ruleset.ACT_AUTH",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::13ActAuth.csv",
@@ -205,7 +205,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.TESTS",
+  "target_table": "contrarisk.db::ruleset.TESTS",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::14Tests.csv",
@@ -220,7 +220,7 @@
  }, 
 
  {
-  "target_table": "contrarisk.db::ruleSet.TEST_ACTIVITY",
+  "target_table": "contrarisk.db::ruleset.TEST_ACTIVITY",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::15TestActivity.csv",
@@ -237,7 +237,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.RISKS",
+  "target_table": "contrarisk.db::ruleset.RISKS",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::16Risks.csv",
@@ -253,7 +253,7 @@
 
 
   {
-  "target_table": "contrarisk.db::ruleSet.RISK_RATING",
+  "target_table": "contrarisk.db::ruleset.RISK_RATING",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::17RiskRating.csv",
@@ -269,7 +269,7 @@
 
 
  {
-  "target_table": "contrarisk.db::ruleSet.RISK_TEST",
+  "target_table": "contrarisk.db::ruleset.RISK_TEST",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::18RiskTest.csv",
@@ -284,7 +284,7 @@
  }, 
 
  {
-  "target_table": "contrarisk.db::ruleSet.BUSINESS_CONTROL",
+  "target_table": "contrarisk.db::ruleset.BUSINESS_CONTROL",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::19BusinessControl.csv",
@@ -299,7 +299,7 @@
  }, 
 
  {
-  "target_table": "contrarisk.db::ruleSet.TESTS_BUSINESS_CONTROL",
+  "target_table": "contrarisk.db::ruleset.TESTS_BUSINESS_CONTROL",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::20TestsBusinessControl.csv",
@@ -314,7 +314,7 @@
  },
  
  {
-  "target_table": "contrarisk.db::ruleSet.UST12",
+  "target_table": "contrarisk.db::ruleset.UST12",
   "source_data": {
    "data_type": "CSV",
    "file_name": "contrarisk.db::UST12.csv",

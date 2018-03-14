@@ -1,28 +1,7 @@
 namespace contrarisk.db;
 
-/*
-@ODATA.PUBLISH : TRUE
-
-CONTEXT SOMEDATA {
-	ENTITY TABLE {
-	KEY PRIMARY_KEY		: Integer NOT NULL;
-		TEXT			: String(10);
-	};
-	ENTITY TABLE2 {
-	KEY PRIMARY_KEY		: Integer NOT NULL;
-		TEXT			: String(10);
-		ASSOCIATION     : ASSOCIATION[1..1] TO TABLE { PRIMARY_KEY };
-	};
-    ENTITY MD_MODULE {
-        KEY MODULE_ID   : String(10) NOT NULL;
-            MODULE_NAME : String(60) NOT NULL;
-    };
-
-}
- */
-
 //@ODATA.PUBLISH : FALSE
-context ruleSet {
+context ruleset {
 
     /*@@LAYOUT{"LAYOUTINFO":{"X":348,"Y":-45.5}}*/
     entity MODULE {
