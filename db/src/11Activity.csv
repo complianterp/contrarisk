@@ -1,0 +1,12 @@
+ACT_ID,ACT_NAME,RS_ID,ACTIVE,SEVERITY,MODULE_ID,SUB_MODULE_ID,OWNER,PROCESS_ID,SUB_PROCESS_ID,WORKFLOW_FLAG
+ACT0001,Table Display and Maintenance,RS0001,1,C,XX,,andrew.clow@complianterp.com,PR000007,SP000017,0
+ACT0002,Maintenance - Bank Master Data,RS0001,1,M,FI,BA,andrew.clow@complianterp.com,PR000001,SP000012,0
+ACT0003,Sales and Distribution - Mass Changes,RS0001,1,M,SD,,andrew.clow@complianterp.com,PR000002,SP000001,0
+ACT0004,Bank Reconciliation,RS0001,1,H,FI,BA,andrew.clow@complianterp.com,PR000001,SP000016,0
+ACT0005,Process Vendor Invoices,RS0001,1,H,MM,AP,andrew.clow@complianterp.com,PR000001,SP000004,0
+ACT0006,Goods Receipts for Purchase Order,RS0001,1,H,MM,,andrew.clow@complianterp.com,PR000001,SP000002,0
+ACT0007,Requisition,RS0001,1,C,MM,,andrew.clow@complianterp.com,PR000001,SP000001,0
+ACT0008,Requisition Release,RS0001,1,C,MM,,andrew.clow@complianterp.com,PR000001,SP000001,0
+ACT0009,Purchase Agreements,RS0001,1,L,MM,,andrew.clow@complianterp.com,PR000001,SP000001,0
+ACT0010,Maintain Purchase Order,RS0001,1,C,MM,,andrew.clow@complianterp.com,PR000001,SP000001,0
+ACT0011,Vendor Master Data Maintenance,RS0001,1,L,MM,AP,andrew.clow@complianterp.com,PR000001,SP000006,0

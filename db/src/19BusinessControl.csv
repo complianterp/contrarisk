@@ -1,0 +1,3 @@
+BC_ID,RS_ID,BC_NAME,ACTIVE,TYPE,PROGRAM,FREQUENCY,OWNER,PROCESS_ID,SUB_PROCESS_ID,DESCRIPTION,VARIANT,MONITOR,WORKFLOW_FLAG
+BC00001,RS0001,Test Control,1,Manual,"Step 1
+Step 2",Weekly,andrew.clow@complianterp.com,PR000001,S000001,Test Business Control to test the data set. ,,andrew.clow@complianterp.com,0

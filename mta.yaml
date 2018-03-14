@@ -8,32 +8,8 @@ modules:
     path: db
     requires:
       - name: hdi_db
-  - name: odatav4
-    type: java
-    path: odatav4
-    provides:
-      - name: odatav4_api
-        properties:
-          url: '${default-url}'
-    requires:
-      - name: hdi_db
-        properties:
-          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml: {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
-  - name: web
-    type: html5
-    path: web
-    requires:
-      - name: odatav4_api
-        group: destinations
-        properties:
-          name: odatav4_be
-          url: '~{service_url}'
-
   
-
-
   
-
 resources:
   - name: hdi_db
     properties:

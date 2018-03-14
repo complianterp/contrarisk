@@ -1,0 +1,2 @@
+CUST_ID,RS_ID,RS_NAME,DESCRIPTION,ACTIVE,GLOBAL_OR_CUSTOMER,OWNER,WORKFLOW_FLAG
+CUST0001,RS0001,Reference Rule Set,Generic reference rule set used as the default rule set. ,1,CUSTOMER,andrew.clow@complianterp.com,0

@@ -1,0 +1,30 @@
+PROCESS_ID,SUB_PROCESS_ID,SUB_PROCESS_NAME
+PR000001,SP000001,P2P - Ordering
+PR000001,SP000002,P2P - Receiving
+PR000001,SP000003,P2P - Invoicing
+PR000001,SP000004,P2P - Payments
+PR000001,SP000005,P2P - Inventory
+PR000001,SP000006,P2P - Vendors
+PR000002,SP000007,O2C - Order Fulfillment
+PR000005,SP000008,Shipping and Delivery
+PR000003,SP000009,Invoicing and Billing
+PR000003,SP000010,Revenue Customer Verifications
+PR000007,SP000011,Policy Enforcement
+PR000007,SP000012,System - Maintain Master Data
+PR000007,SP000013,System - System Support
+PR000002,SP000014,O2C - Receipting
+PR000006,SP000015,GL Posting Activity
+PR000006,SP000016,Bank Reconciliation
+PR000007,SP000017,Data Extraction
+PR000007,SP000018,Mass Maintenance
+PR000007,SP000019,System Maintenance
+PR000006,SP000020,Credit Management
+PR000006,SP000021,Journals
+PR000005,SP000022,Sales - Inventory Pricing
+PR000006,SP000023,Customer - Raising Invoices
+PR000006,SP000024,Revenue - Account Creation
+PR000005,SP000025,Assets - Asset Maintenance
+PR000006,SP000026,Sales - Discounts
+PR000006,SP000027,Claims Management
+PR000008,SP000028,ALL
+PR000005,SP000029,GL - Maintain Master Data

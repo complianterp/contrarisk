@@ -1,0 +1,9 @@
+PROCESS_ID,PROCESS_NAME
+PR000001,Procure to Pay (P2P)
+PR000002,Order to Cash (O2C)
+PR000003,Payroll
+PR000004,Claims Management
+PR000005,Assets
+PR000006,Revenue
+PR000007,System Support
+PR000008,ALL

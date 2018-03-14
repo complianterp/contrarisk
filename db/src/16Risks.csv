@@ -1,0 +1,11 @@
+RISK_ID,RS_ID,RISK_NAME,RISK_RATING,RISK_CAT,WORKFLOW_FLAG
+RSK000001,RS0001,Fraud,,,0
+RSK000002,RS0001,Loss of funds,,,0
+RSK000003,RS0001,Waste of resources,,,0
+RSK000004,RS0001,Inefficient Processes,,,0
+RSK000005,RS0001,Email Scam,,,0
+RSK000006,RS0001,Damage or Destruction of Data,,,0
+RSK000007,RS0001,Loss of Security,,,0
+RSK000008,RS0001,Loss of Data Integrity,,,0
+RSK000009,RS0001,Money leakage?,,,0
+RSK000010,RS0001,Inefficiency?,,,0

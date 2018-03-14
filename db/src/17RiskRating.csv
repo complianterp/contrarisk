@@ -1,0 +1,251 @@
+RISK_RATING_ID,RS_ID,CONSEQUENCE,LIKELIHOOD,C_X_L,CL,DEFAULT_MATRIX_RATING,RANGE,DEFAULT_RISK_CLASSIFICATION,DEFAULT_RISK_RANGE
+01,RS0001,1,1,1,11,Low 01,01,Low,Low 01
+02,RS0001,1,1,1,11,Low 02,02,Low,Low 02
+03,RS0001,1,1,1,11,Low 03,03,Low,Low 03
+04,RS0001,1,1,1,11,Low 04,04,Low,Low 04
+05,RS0001,1,1,1,11,Low 05,05,Low,Low 05
+06,RS0001,1,1,1,11,Low 06,06,Low,Low 06
+07,RS0001,1,1,1,11,Low 07,07,Low,Low 07
+08,RS0001,1,1,1,11,Low 08,08,Low,Low 08
+09,RS0001,1,1,1,11,Low 09,09,Low,Low 09
+10,RS0001,1,1,1,11,Low 10,10,Low,Low 10
+11,RS0001,1,2,2,12,Low 11,01,Low,Low 01
+12,RS0001,1,2,2,12,Low 12,02,Low,Low 02
+13,RS0001,1,2,2,12,Low 13,03,Low,Low 03
+14,RS0001,1,2,2,12,Low 14,04,Low,Low 04
+15,RS0001,1,2,2,12,Low 15,05,Low,Low 05
+16,RS0001,1,2,2,12,Low 16,06,Low,Low 06
+17,RS0001,1,2,2,12,Low 17,07,Low,Low 07
+18,RS0001,1,2,2,12,Low 18,08,Low,Low 08
+19,RS0001,1,2,2,12,Low 19,09,Low,Low 09
+20,RS0001,1,2,2,12,Low 20,10,Low,Low 10
+21,RS0001,1,3,3,13,Low 21,01,Low,Low 01
+22,RS0001,1,3,3,13,Low 22,02,Low,Low 02
+23,RS0001,1,3,3,13,Low 23,03,Low,Low 03
+24,RS0001,1,3,3,13,Low 24,04,Low,Low 04
+25,RS0001,1,3,3,13,Low 25,05,Low,Low 05
+26,RS0001,1,3,3,13,Low 26,06,Low,Low 06
+27,RS0001,1,3,3,13,Low 27,07,Low,Low 07
+28,RS0001,1,3,3,13,Low 28,08,Low,Low 08
+29,RS0001,1,3,3,13,Low 29,09,Low,Low 09
+30,RS0001,1,3,3,13,Low 30,10,Low,Low 10
+31,RS0001,1,4,4,14,Low 31,01,Low,Low 01
+32,RS0001,1,4,4,14,Low 32,02,Low,Low 02
+33,RS0001,1,4,4,14,Low 33,03,Low,Low 03
+34,RS0001,1,4,4,14,Low 34,04,Low,Low 04
+35,RS0001,1,4,4,14,Low 35,05,Low,Low 05
+36,RS0001,1,4,4,14,Low 36,06,Low,Low 06
+37,RS0001,1,4,4,14,Low 37,07,Low,Low 07
+38,RS0001,1,4,4,14,Low 38,08,Low,Low 08
+39,RS0001,1,4,4,14,Low 39,09,Low,Low 09
+40,RS0001,1,4,4,14,Low 40,10,Low,Low 10
+41,RS0001,1,5,5,15,Low 41,01,Low,Low 01
+42,RS0001,1,5,5,15,Low 42,02,Low,Low 02
+43,RS0001,1,5,5,15,Low 43,03,Low,Low 03
+44,RS0001,1,5,5,15,Low 44,04,Low,Low 04
+45,RS0001,1,5,5,15,Low 45,05,Low,Low 05
+46,RS0001,1,5,5,15,Low 46,06,Low,Low 06
+47,RS0001,1,5,5,15,Low 47,07,Low,Low 07
+48,RS0001,1,5,5,15,Low 48,08,Low,Low 08
+49,RS0001,1,5,5,15,Low 49,09,Low,Low 09
+50,RS0001,1,5,5,15,Low 50,10,Low,Low 10
+51,RS0001,2,1,2,21,Low 51,01,Low,Low 01
+52,RS0001,2,1,2,21,Low 52,02,Low,Low 02
+53,RS0001,2,1,2,21,Low 53,03,Low,Low 03
+54,RS0001,2,1,2,21,Low 54,04,Low,Low 04
+55,RS0001,2,1,2,21,Low 55,05,Low,Low 05
+56,RS0001,2,1,2,21,Low 56,06,Low,Low 06
+57,RS0001,2,1,2,21,Low 57,07,Low,Low 07
+58,RS0001,2,1,2,21,Low 58,08,Low,Low 08
+59,RS0001,2,1,2,21,Low 59,09,Low,Low 09
+60,RS0001,2,1,2,21,Low 60,10,Low,Low 10
+61,RS0001,2,2,4,22,Low 61,01,Low,Low 01
+62,RS0001,2,2,4,22,Low 62,02,Low,Low 02
+63,RS0001,2,2,4,22,Low 63,03,Low,Low 03
+64,RS0001,2,2,4,22,Low 64,04,Low,Low 04
+65,RS0001,2,2,4,22,Low 65,05,Low,Low 05
+66,RS0001,2,2,4,22,Low 66,06,Low,Low 06
+67,RS0001,2,2,4,22,Low 67,07,Low,Low 07
+68,RS0001,2,2,4,22,Low 68,08,Low,Low 08
+69,RS0001,2,2,4,22,Low 69,09,Low,Low 09
+70,RS0001,2,2,4,22,Low 70,10,Low,Low 10
+71,RS0001,2,3,6,23,Moderate 71,01,Moderate,Moderate 01
+72,RS0001,2,3,6,23,Moderate 72,02,Moderate,Moderate 02
+73,RS0001,2,3,6,23,Moderate 73,03,Moderate,Moderate 03
+74,RS0001,2,3,6,23,Moderate 74,04,Moderate,Moderate 04
+75,RS0001,2,3,6,23,Moderate 75,05,Moderate,Moderate 05
+76,RS0001,2,3,6,23,Moderate 76,06,Moderate,Moderate 06
+77,RS0001,2,3,6,23,Moderate 77,07,Moderate,Moderate 07
+78,RS0001,2,3,6,23,Moderate 78,08,Moderate,Moderate 08
+79,RS0001,2,3,6,23,Moderate 79,09,Moderate,Moderate 09
+80,RS0001,2,3,6,23,Moderate 80,10,Moderate,Moderate 10
+81,RS0001,2,4,8,24,Moderate 81,01,Moderate,Moderate 01
+82,RS0001,2,4,8,24,Moderate 82,02,Moderate,Moderate 02
+83,RS0001,2,4,8,24,Moderate 83,03,Moderate,Moderate 03
+84,RS0001,2,4,8,24,Moderate 84,04,Moderate,Moderate 04
+85,RS0001,2,4,8,24,Moderate 85,05,Moderate,Moderate 05
+86,RS0001,2,4,8,24,Moderate 86,06,Moderate,Moderate 06
+87,RS0001,2,4,8,24,Moderate 87,07,Moderate,Moderate 07
+88,RS0001,2,4,8,24,Moderate 88,08,Moderate,Moderate 08
+89,RS0001,2,4,8,24,Moderate 89,09,Moderate,Moderate 09
+90,RS0001,2,4,8,24,Moderate 90,10,Moderate,Moderate 10
+91,RS0001,2,5,10,25,Moderate 91,01,Moderate,Moderate 01
+92,RS0001,2,5,10,25,Moderate 92,02,Moderate,Moderate 02
+93,RS0001,2,5,10,25,Moderate 93,03,Moderate,Moderate 03
+94,RS0001,2,5,10,25,Moderate 94,04,Moderate,Moderate 04
+95,RS0001,2,5,10,25,Moderate 95,05,Moderate,Moderate 05
+96,RS0001,2,5,10,25,Moderate 96,06,Moderate,Moderate 06
+97,RS0001,2,5,10,25,Moderate 97,07,Moderate,Moderate 07
+98,RS0001,2,5,10,25,Moderate 98,08,Moderate,Moderate 08
+99,RS0001,2,5,10,25,Moderate 99,09,Moderate,Moderate 09
+100,RS0001,2,5,10,25,Moderate 100,10,Moderate,Moderate 10
+101,RS0001,3,1,3,31,Moderate 101,01,Moderate,Moderate 01
+102,RS0001,3,1,3,31,Moderate 102,02,Moderate,Moderate 02
+103,RS0001,3,1,3,31,Moderate 103,03,Moderate,Moderate 03
+104,RS0001,3,1,3,31,Moderate 104,04,Moderate,Moderate 04
+105,RS0001,3,1,3,31,Moderate 105,05,Moderate,Moderate 05
+106,RS0001,3,1,3,31,Moderate 106,06,Moderate,Moderate 06
+107,RS0001,3,1,3,31,Moderate 107,07,Moderate,Moderate 07
+108,RS0001,3,1,3,31,Moderate 108,08,Moderate,Moderate 08
+109,RS0001,3,1,3,31,Moderate 109,09,Moderate,Moderate 09
+110,RS0001,3,1,3,31,Moderate 110,10,Moderate,Moderate 10
+111,RS0001,3,2,6,32,High 111,01,High,High 01
+112,RS0001,3,2,6,32,High 112,02,High,High 02
+113,RS0001,3,2,6,32,High 113,03,High,High 03
+114,RS0001,3,2,6,32,High 114,04,High,High 04
+115,RS0001,3,2,6,32,High 115,05,High,High 05
+116,RS0001,3,2,6,32,High 116,06,High,High 06
+117,RS0001,3,2,6,32,High 117,07,High,High 07
+118,RS0001,3,2,6,32,High 118,08,High,High 08
+119,RS0001,3,2,6,32,High 119,09,High,High 09
+120,RS0001,3,2,6,32,High 120,10,High,High 10
+121,RS0001,3,3,9,33,High 121,01,High,High 01
+122,RS0001,3,3,9,33,High 122,02,High,High 02
+123,RS0001,3,3,9,33,High 123,03,High,High 03
+124,RS0001,3,3,9,33,High 124,04,High,High 04
+125,RS0001,3,3,9,33,High 125,05,High,High 05
+126,RS0001,3,3,9,33,High 126,06,High,High 06
+127,RS0001,3,3,9,33,High 127,07,High,High 07
+128,RS0001,3,3,9,33,High 128,08,High,High 08
+129,RS0001,3,3,9,33,High 129,09,High,High 09
+130,RS0001,3,3,9,33,High 130,10,High,High 10
+131,RS0001,3,4,12,34,Very High 131,01,Very High,Very High 01
+132,RS0001,3,4,12,34,Very High 132,02,Very High,Very High 02
+133,RS0001,3,4,12,34,Very High 133,03,Very High,Very High 03
+134,RS0001,3,4,12,34,Very High 134,04,Very High,Very High 04
+135,RS0001,3,4,12,34,Very High 135,05,Very High,Very High 05
+136,RS0001,3,4,12,34,Very High 136,06,Very High,Very High 06
+137,RS0001,3,4,12,34,Very High 137,07,Very High,Very High 07
+138,RS0001,3,4,12,34,Very High 138,08,Very High,Very High 08
+139,RS0001,3,4,12,34,Very High 139,09,Very High,Very High 09
+140,RS0001,3,4,12,34,Very High 140,10,Very High,Very High 10
+141,RS0001,3,5,15,35,Very High 141,01,Very High,Very High 01
+142,RS0001,3,5,15,35,Very High 142,02,Very High,Very High 02
+143,RS0001,3,5,15,35,Very High 143,03,Very High,Very High 03
+144,RS0001,3,5,15,35,Very High 144,04,Very High,Very High 04
+145,RS0001,3,5,15,35,Very High 145,05,Very High,Very High 05
+146,RS0001,3,5,15,35,Very High 146,06,Very High,Very High 06
+147,RS0001,3,5,15,35,Very High 147,07,Very High,Very High 07
+148,RS0001,3,5,15,35,Very High 148,08,Very High,Very High 08
+149,RS0001,3,5,15,35,Very High 149,09,Very High,Very High 09
+150,RS0001,3,5,15,35,Very High 150,10,Very High,Very High 10
+151,RS0001,4,1,4,41,High 151,01,High,High 01
+152,RS0001,4,1,4,41,High 152,02,High,High 02
+153,RS0001,4,1,4,41,High 153,03,High,High 03
+154,RS0001,4,1,4,41,High 154,04,High,High 04
+155,RS0001,4,1,4,41,High 155,05,High,High 05
+156,RS0001,4,1,4,41,High 156,06,High,High 06
+157,RS0001,4,1,4,41,High 157,07,High,High 07
+158,RS0001,4,1,4,41,High 158,08,High,High 08
+159,RS0001,4,1,4,41,High 159,09,High,High 09
+160,RS0001,4,1,4,41,High 160,10,High,High 10
+161,RS0001,4,2,8,42,Very High 161,01,Very High,Very High 01
+162,RS0001,4,2,8,42,Very High 162,02,Very High,Very High 02
+163,RS0001,4,2,8,42,Very High 163,03,Very High,Very High 03
+164,RS0001,4,2,8,42,Very High 164,04,Very High,Very High 04
+165,RS0001,4,2,8,42,Very High 165,05,Very High,Very High 05
+166,RS0001,4,2,8,42,Very High 166,06,Very High,Very High 06
+167,RS0001,4,2,8,42,Very High 167,07,Very High,Very High 07
+168,RS0001,4,2,8,42,Very High 168,08,Very High,Very High 08
+169,RS0001,4,2,8,42,Very High 169,09,Very High,Very High 09
+170,RS0001,4,2,8,42,Very High 170,10,Very High,Very High 10
+171,RS0001,4,3,12,43,Very High 171,01,Very High,Very High 01
+172,RS0001,4,3,12,43,Very High 172,02,Very High,Very High 02
+173,RS0001,4,3,12,43,Very High 173,03,Very High,Very High 03
+174,RS0001,4,3,12,43,Very High 174,04,Very High,Very High 04
+175,RS0001,4,3,12,43,Very High 175,05,Very High,Very High 05
+176,RS0001,4,3,12,43,Very High 176,06,Very High,Very High 06
+177,RS0001,4,3,12,43,Very High 177,07,Very High,Very High 07
+178,RS0001,4,3,12,43,Very High 178,08,Very High,Very High 08
+179,RS0001,4,3,12,43,Very High 179,09,Very High,Very High 09
+180,RS0001,4,3,12,43,Very High 180,10,Very High,Very High 10
+181,RS0001,4,4,16,44,Extreme 181,01,Extreme,Extreme 01
+182,RS0001,4,4,16,44,Extreme 182,02,Extreme,Extreme 02
+183,RS0001,4,4,16,44,Extreme 183,03,Extreme,Extreme 03
+184,RS0001,4,4,16,44,Extreme 184,04,Extreme,Extreme 04
+185,RS0001,4,4,16,44,Extreme 185,05,Extreme,Extreme 05
+186,RS0001,4,4,16,44,Extreme 186,06,Extreme,Extreme 06
+187,RS0001,4,4,16,44,Extreme 187,07,Extreme,Extreme 07
+188,RS0001,4,4,16,44,Extreme 188,08,Extreme,Extreme 08
+189,RS0001,4,4,16,44,Extreme 189,09,Extreme,Extreme 09
+190,RS0001,4,4,16,44,Extreme 190,10,Extreme,Extreme 10
+191,RS0001,4,5,20,45,Extreme 191,01,Extreme,Extreme 01
+192,RS0001,4,5,20,45,Extreme 192,02,Extreme,Extreme 02
+193,RS0001,4,5,20,45,Extreme 193,03,Extreme,Extreme 03
+194,RS0001,4,5,20,45,Extreme 194,04,Extreme,Extreme 04
+195,RS0001,4,5,20,45,Extreme 195,05,Extreme,Extreme 05
+196,RS0001,4,5,20,45,Extreme 196,06,Extreme,Extreme 06
+197,RS0001,4,5,20,45,Extreme 197,07,Extreme,Extreme 07
+198,RS0001,4,5,20,45,Extreme 198,08,Extreme,Extreme 08
+199,RS0001,4,5,20,45,Extreme 199,09,Extreme,Extreme 09
+200,RS0001,4,5,20,45,Extreme 200,10,Extreme,Extreme 10
+201,RS0001,5,1,5,51,Very High 201,01,Very High,Very High 01
+202,RS0001,5,1,5,51,Very High 202,02,Very High,Very High 02
+203,RS0001,5,1,5,51,Very High 203,03,Very High,Very High 03
+204,RS0001,5,1,5,51,Very High 204,04,Very High,Very High 04
+205,RS0001,5,1,5,51,Very High 205,05,Very High,Very High 05
+206,RS0001,5,1,5,51,Very High 206,06,Very High,Very High 06
+207,RS0001,5,1,5,51,Very High 207,07,Very High,Very High 07
+208,RS0001,5,1,5,51,Very High 208,08,Very High,Very High 08
+209,RS0001,5,1,5,51,Very High 209,09,Very High,Very High 09
+210,RS0001,5,1,5,51,Very High 210,10,Very High,Very High 10
+211,RS0001,5,2,10,52,Extreme 211,01,Extreme,Extreme 01
+212,RS0001,5,2,10,52,Extreme 212,02,Extreme,Extreme 02
+213,RS0001,5,2,10,52,Extreme 213,03,Extreme,Extreme 03
+214,RS0001,5,2,10,52,Extreme 214,04,Extreme,Extreme 04
+215,RS0001,5,2,10,52,Extreme 215,05,Extreme,Extreme 05
+216,RS0001,5,2,10,52,Extreme 216,06,Extreme,Extreme 06
+217,RS0001,5,2,10,52,Extreme 217,07,Extreme,Extreme 07
+218,RS0001,5,2,10,52,Extreme 218,08,Extreme,Extreme 08
+219,RS0001,5,2,10,52,Extreme 219,09,Extreme,Extreme 09
+220,RS0001,5,2,10,52,Extreme 220,10,Extreme,Extreme 10
+221,RS0001,5,3,15,53,Extreme 221,01,Extreme,Extreme 01
+222,RS0001,5,3,15,53,Extreme 222,02,Extreme,Extreme 02
+223,RS0001,5,3,15,53,Extreme 223,03,Extreme,Extreme 03
+224,RS0001,5,3,15,53,Extreme 224,04,Extreme,Extreme 04
+225,RS0001,5,3,15,53,Extreme 225,05,Extreme,Extreme 05
+226,RS0001,5,3,15,53,Extreme 226,06,Extreme,Extreme 06
+227,RS0001,5,3,15,53,Extreme 227,07,Extreme,Extreme 07
+228,RS0001,5,3,15,53,Extreme 228,08,Extreme,Extreme 08
+229,RS0001,5,3,15,53,Extreme 229,09,Extreme,Extreme 09
+230,RS0001,5,3,15,53,Extreme 230,10,Extreme,Extreme 10
+231,RS0001,5,4,20,54,Extreme 231,01,Extreme,Extreme 01
+232,RS0001,5,4,20,54,Extreme 232,02,Extreme,Extreme 02
+233,RS0001,5,4,20,54,Extreme 233,03,Extreme,Extreme 03
+234,RS0001,5,4,20,54,Extreme 234,04,Extreme,Extreme 04
+235,RS0001,5,4,20,54,Extreme 235,05,Extreme,Extreme 05
+236,RS0001,5,4,20,54,Extreme 236,06,Extreme,Extreme 06
+237,RS0001,5,4,20,54,Extreme 237,07,Extreme,Extreme 07
+238,RS0001,5,4,20,54,Extreme 238,08,Extreme,Extreme 08
+239,RS0001,5,4,20,54,Extreme 239,09,Extreme,Extreme 09
+240,RS0001,5,4,20,54,Extreme 240,10,Extreme,Extreme 10
+241,RS0001,5,5,25,55,Extreme 241,01,Extreme,Extreme 01
+242,RS0001,5,5,25,55,Extreme 242,02,Extreme,Extreme 02
+243,RS0001,5,5,25,55,Extreme 243,03,Extreme,Extreme 03
+244,RS0001,5,5,25,55,Extreme 244,04,Extreme,Extreme 04
+245,RS0001,5,5,25,55,Extreme 245,05,Extreme,Extreme 05
+246,RS0001,5,5,25,55,Extreme 246,06,Extreme,Extreme 06
+247,RS0001,5,5,25,55,Extreme 247,07,Extreme,Extreme 07
+248,RS0001,5,5,25,55,Extreme 248,08,Extreme,Extreme 08
+249,RS0001,5,5,25,55,Extreme 249,09,Extreme,Extreme 09
+250,RS0001,5,5,25,55,Extreme 250,10,Extreme,Extreme 10

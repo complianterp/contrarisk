@@ -1,0 +1,121 @@
+TCODE,PGMNA,DYPNO,MENUE,CINFO,ARBGB,TTEXT
+F-02,SAPMF05A,100,,2,,Enter G/L Account Posting
+F-41,SAPMF05A,100,,2,,Enter Vendor Credit Memo
+F-42,SAPMF05A,100,,2,,Enter Transfer Posting
+F-43,SAPMF05A,100,,2,,Enter Vendor Invoice
+F-44,SAPMF05A,131,,2,,Clear Vendor
+F-47,SAPMF05A,112,,2,,Down Payment Request
+F-63,SAPLF040,100,,2,,Park Vendor Invoice
+F-66,SAPLF040,100,,2,,Park Vendor Credit Memo
+F.34,,0,,2,,Credit Management - Mass Change
+FB01,SAPMF05A,100,,4,,Post Document
+FB01L,,0,,2,,General Posting for Ledger Group
+FB02,SAPMF05L,100,,4,,Change Document
+FB10,SAPMF05A,126,,0,,Invoice/Credit Fast Entry
+FB60,SAPMF05A,1099,,0,,Enter Incoming Invoices
+FB65,SAPMF05A,1099,,0,,Enter Incoming Credit Memos
+FBRA,SAPMF05R,100,,0,,Reset Cleared Items
+FBV0,SAPMF05V,100,,0,,Post Parked Document
+FCHI,SAPMFCHI,100,,0,,Check Lots
+FEBA,SAPMF40A,100,,4,,Postprocess Electronic Bank Statmt
+FEBAN,SAPLNEW_FEBA,100,,4,,Bank statement postprocessing
+FEBA_BANK_STATEMENT,,0,,2,,Postprocessing Bank Statement
+FEBC,RFBASM00,1000,,84,,Generate Multicash format
+FEBP,RFEBKA30,1000,,80,,Post Electronic Bank Statement
+FF.5,RFBASM00,1000,,80,,Import Electronic Bank Statement
+FF/4,RFEBSC00,1000,,80,,Import Electronic Check Deposit List
+FF/5,RFEBSC10,1000,,80,,Post electronic check deposit list
+FF67,SAPMF40K,105,,4,,Manual Account Statement
+FF68,SAPMF40S,105,,4,,Manual Check Deposit Transaction
+FFB4,RFEBSC00,1000,,80,,Import Electronic Check Deposit List
+FFB5,RFEBSC10,1000,,80,,Post electronic check deposit list
+FI01,SAPMF02B,100,,0,,Create Bank
+FI02,SAPMF02B,100,,0,,Change Bank
+FI13,,0,,2,,Display House Banks/Bank Accounts
+FK01,SAPMF02K,105,,4,,Create Vendor (Accounting)
+FK02,SAPMF02K,106,,4,,Change Vendor (Accounting)
+FK05,SAPMF02K,505,,4,,Block Vendor (Accounting)
+FK06,SAPMF02K,505,,4,,Mark Vendor for Deletion (Acctng)
+FV60,SAPMF05A,1099,,0,,Park Incoming Invoices
+FV65,SAPMF05A,1099,,0,,Park Incoming Credit Memos
+M-01,,0,,2,,Create Vendor
+M-02,,0,,2,,Create goods vendor
+M-03,,0,,2,,Create payment recipient
+M-04,,0,,2,,Create invoicing party
+M-05,,0,,2,,Create carrier
+M-06,,0,,2,,Create ordering address
+M-07,,0,,2,,Create one-time vendor
+M-12,,0,,2,,Create hierarchy nodes
+M-51,,0,,2,,Create vendor
+M-52,,0,,2,,Create goods vendor
+M-53,,0,,2,,Create payment recipient
+M-54,,0,,2,,Create invoicing party
+M-55,,0,,2,,Create carrier
+M-56,,0,,2,,Create ordering address
+M-57,,0,,2,,Create one-time vendor
+M-62,,0,,2,,Create hierarchy nodes
+MB01,SAPMM07M,200,,4,,Post Goods Receipt for PO
+MB0A,SAPMM07M,201,,4,,Post Goods Receipt for PO
+ME21,SAPMM06E,100,,4,,Create Purchase Order
+ME21N,RM_MEPO_GUI,1000,,84,,Create Purchase Order
+ME22,SAPMM06E,105,,4,,Change Purchase Order
+ME22N,RM_MEPO_GUI,1000,,84,,Change Purchase Order
+ME23N,RM_MEPO_GUI,1000,,84,,Display Purchase Order
+ME25,SAPMM06B,200,,4,,Create PO with Source Determination
+ME31,SAPMM06E,200,,4,,Create Outline Agreement
+ME31K,SAPMM06E,200,,4,,Create Contract
+ME31L,SAPMM06E,200,,4,,Create Scheduling Agreement
+ME32,SAPMM06E,205,,4,,Change Outline Agreement
+ME32K,SAPMM06E,205,,4,,Change Contract
+ME32L,SAPMM06E,205,,4,,Change Scheduling Agreement
+ME34,SAPMM06E,205,,4,,Maintain Outl. Agreement Supplement
+ME34K,SAPMM06E,205,,4,,Maintain Contract Supplement
+ME34L,SAPMM06E,205,,4,,Maintain Sched. Agreement Supplement
+ME51,SAPMM06B,100,,4,,Create Purchase Requisition
+ME51N,RM_MEREQ_GUI,1000,,84,,Create Purchase Requisition
+ME52,SAPMM06B,105,,4,,Change Purchase Requisition
+ME52N,RM_MEREQ_GUI,1000,,84,,Change Purchase Requisition
+ME52NB,RM_MEREQ_GUI,1000,,80,,Buyer Approval: Purchase Requisition
+ME54,SAPMM06B,105,,4,,Release Purchase Requisition
+ME54N,RM_MEREQ_GUI,1000,,84,,Release Purchase Requisition
+ME55,RM06BF00,1000,,84,,Collective Release of Purchase Reqs.
+ME59,RM06BB10,100,,4,,Automatic Generation of POs
+ME59N,RM06BB30,0,,84,,Automatic generation of POs
+MEMASSPO,,0,,2,,Mass Change of Purchase Orders
+MEMASSRQ,,0,,2,,Mass-Changing of Purch. Requisitions
+MEMASSSA,,0,,2,,Mass Changing of Sched. Agreements
+MEPO,RM_MEPO_GUI,1000,,84,,Purchase Order
+MIGO,SAPLMIGO,1,,0,,Goods Movement
+MIGO_GR,SAPLMIGO,1,,0,,Goods Movement
+MIR7,SAPLMR1M,6000,,4,,Park Invoice
+MIRA,SAPLMR1M,6000,,4,,Fast Invoice Entry
+MIRO,SAPLMR1M,6000,,4,,Enter Incoming Invoice
+MK01,SAPMF02K,107,,4,,Create vendor (Purchasing)
+MK02,SAPMF02K,108,,4,,Change vendor (Purchasing)
+MK05,SAPMF02K,507,,4,,Block Vendor (Purchasing)
+MK06,SAPMF02K,507,,4,,Mark vendor for deletion (purch.)
+MK12,SAPMF02K,108,,4,,"Change vendor (Purchasing), planned"
+MR01,SAPMM08R,100,,0,,Process Incoming Invoice
+MR08,SAPMM08S,100,,0,,Cancel Invoice Document
+MR41,SAPMM08R,100,,0,,Park Invoice
+MR42,SAPMM08R,101,,0,,Change Parked Invoice
+MR44,SAPMM08R,101,,0,,Post Parked Document
+MR8M,SAPLMR1M,300,,0,,Cancel Invoice Document
+MRHG,SAPMM08R,100,,0,,Enter Credit Memo
+MRHR,SAPMM08R,100,,0,,Enter Invoice
+MRRL,RMMR1MRS,1000,,80,,Evaluated Receipt Settlement
+MRRS,RMMR01RS,1000,,80,,Evaluated Receipt Settlement
+OCCK,,0,,2,,Vendor: Trading Partner
+OT41,,0,,2,,C FI Change Vendor
+SE16,SAPLSETB,230,,0,,Data Browser
+SE16N,RK_SE16N,1000,,80,,General Table Display
+V-11,SAPMF02K,105,,2,,Create carrier
+WPOHF4C,SAPLWRF_PBAS_WORKBENCH,100,,0,,Create Purchase Order
+WPOHF4X,SAPLWRF_PBAS_WORKBENCH,100,,0,,Change Purchase Order
+WPOHF4XS,SAPLWRF_PBAS_WORKBENCH,100,,0,,Change Purchase Order
+XK01,SAPMF02K,100,,4,,Create Vendor (Centrally)
+XK02,SAPMF02K,101,,4,,Change vendor (centrally)
+XK05,SAPMF02K,500,,4,,Block Vendor (Centrally)
+XK06,SAPMF02K,500,,4,,Mark vendor for deletion (centrally)
+XK07,SAPMF02K,102,,0,,Change vendor account group
+XK99,,0,,2,,"Mass maintenance, vendor master"

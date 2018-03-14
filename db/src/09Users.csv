@@ -1,0 +1,2 @@
+CUST_ID,USER_ID,FIRST_NAME,LAST_NAME,EMAIL,START_DATE,END_DATE,TIME_ZONE,ADMIN_ACCESS
+CUST0001,andrew.clow@complianterp.com,Andrew,Clow,andrew.clow@complianterp.com,29.06.2017,31.12.9999,,1

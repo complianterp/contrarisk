@@ -1,0 +1,36 @@
+LANGU,OBJECT,TTEXT
+EN,B_MASSMAIN,Cross-Application Mass Maintenance Tool
+EN,F_BKPF_BEK,Accounting Document: Account Authorization for Vendors
+EN,F_BKPF_BES,Accounting Document: Account Authorization for G/L Accounts
+EN,F_BKPF_BLA,Accounting Document: Authorization for Document Types
+EN,F_BKPF_BUK,Accounting Document: Authorization for Company Codes
+EN,F_BKPF_KOA,Accounting Document: Authorization for Account Types
+EN,F_BNKA_BUK,Banks: Authorization for Company Codes
+EN,F_BNKA_MAN,Banks: General Maintenance Authorization
+EN,F_FEBB_BUK,Company Code Bank Statement
+EN,F_FEBC_BUK,Company Code Check Deposit/Lockbox
+EN,F_KNKA_KKB,Credit Management: Authorization for Credit Control Area
+EN,F_LFA1_APP,Vendor: Application Authorization
+EN,F_LFA1_BUK,Vendor: Authorization for Company Codes
+EN,F_LFA1_GEN,Vendor: Central Data
+EN,F_PAYR_BUK,Check Management: Action Authorization for Company Codes
+EN,M_BANF_BSA,Document Type in Purchase Requisition
+EN,M_BANF_EKG,Purchasing Group in Purchase Requisition
+EN,M_BANF_EKO,Purchasing Organization in Purchase Requisition
+EN,M_BANF_FRG,Release Code in Purchase Requisition
+EN,M_BANF_WRK,Plant in Purchase Requisition
+EN,M_BEST_BSA,Document Type in Purchase Order
+EN,M_BEST_EKG,Purchasing Group in Purchase Order
+EN,M_BEST_EKO,Purchasing Organization in Purchase Order
+EN,M_BEST_WRK,Plant in Purchase Order
+EN,M_MSEG_BWE,Goods Receipt for Purchase Order: Movement Type
+EN,M_MSEG_WWE,Goods Receipt for Purchase Order: Plant
+EN,M_RAHM_BSA,Document Type in Outline Agreement
+EN,M_RAHM_EKG,Purchasing Group in Outline Agreement
+EN,M_RAHM_EKO,Purchasing Organization in Outline Agreement
+EN,M_RAHM_WRK,Plant in Outline Agreement
+EN,M_RECH_AKZ,Invoices: Accept Invoice Verification Differences Manually
+EN,M_RECH_WRK,Invoices: Plant
+EN,S_PROGRAM,ABAP: Program Flow Checks
+EN,S_TABU_DIS,Table Maintenance (via standard tools such as SM30)
+EN,S_TABU_NAM,Table Access via Generic Standard Tools

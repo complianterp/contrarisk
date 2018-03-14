@@ -1,0 +1,814 @@
+namespace contrarisk.db;
+
+/*
+@ODATA.PUBLISH : TRUE
+
+CONTEXT SOMEDATA {
+	ENTITY TABLE {
+	KEY PRIMARY_KEY		: Integer NOT NULL;
+		TEXT			: String(10);
+	};
+	ENTITY TABLE2 {
+	KEY PRIMARY_KEY		: Integer NOT NULL;
+		TEXT			: String(10);
+		ASSOCIATION     : ASSOCIATION[1..1] TO TABLE { PRIMARY_KEY };
+	};
+    ENTITY MD_MODULE {
+        KEY MODULE_ID   : String(10) NOT NULL;
+            MODULE_NAME : String(60) NOT NULL;
+    };
+
+}
+ */
+
+//@ODATA.PUBLISH : FALSE
+context ruleSet {
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":348,"Y":-45.5}}*/
+    entity MODULE {
+        key MODULE_ID     : String(10) not null;
+            MODULE_NAME   : String(60) not null;
+            TO_SUB_MODULE : association[0..*] to SUB_MODULE on TO_SUB_MODULE.MODULE_ID = MODULE_ID; /*OUT*/
+            TO_ACTIVITY   : association[0..*] to ACTIVITY   on TO_ACTIVITY.MODULE_ID = MODULE_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":718,"Y":-93.5}}*/
+    entity SUB_MODULE {
+        key MODULE_ID       : String(10) not null; /*ASSOCIATION*/
+        key SUB_MODULE_ID   : String(10) not null;
+            SUB_MODULE_NAME : String(60) not null;
+            TO_MODULE       : association[1] to MODULE   on TO_MODULE.MODULE_ID = MODULE_ID; /*IN*/
+            TO_ACTIVITY     : association[1] to ACTIVITY on TO_ACTIVITY.SUB_MODULE_ID = SUB_MODULE_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":1129,"Y":1087.5}}*/
+    entity PROCESSES {
+        key PROCESS_ID          : String(10) not null;
+            PROCESS_NAME        : String(60) not null;
+            TO_SUB_PROCESSES    : association[0..*] to SUB_PROCESSES    on TO_SUB_PROCESSES.PROCESS_ID = PROCESS_ID; /*OUT*/
+            TO_ACTIVITY         : association[0..*] to ACTIVITY         on TO_ACTIVITY.PROCESS_ID = PROCESS_ID; /*OUT*/
+            TO_BUSINESS_CONTROL : association[0..*] to BUSINESS_CONTROL on TO_BUSINESS_CONTROL.PROCESS_ID = PROCESS_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":719,"Y":1244.5}}*/
+    entity SUB_PROCESSES {
+        key PROCESS_ID          : String(10) not null; /*ASSOCIATION*/
+        key SUB_PROCESS_ID      : String(10) not null;
+            SUB_PROCESS_NAME    : String(60) not null;
+            TO_PROCESSES        : association[1]    to PROCESSES        on TO_PROCESSES.PROCESS_ID = PROCESS_ID; /*IN*/
+            TO_ACTIVITY         : association[0..*] to ACTIVITY         on TO_ACTIVITY.SUB_PROCESS_ID = SUB_PROCESS_ID; /*OUT*/
+            TO_BUSINESS_CONTROL : association[0..*] to BUSINESS_CONTROL on TO_BUSINESS_CONTROL.SUB_PROCESS_ID = SUB_PROCESS_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":1281,"Y":176.5}}*/
+    entity TSTC {
+        key TCODE        : String(20) not null;
+            PGMNA        : String(40);
+            DYPNO        : Integer;
+            MENUE        : String(5);
+            CINFO        : Integer;
+            ARBGB        : String(20);
+            TTEXT        : String(60);
+            TO_ACT_TCODE : association[0..*] to ACT_TCODE on TO_ACT_TCODE.TCODE = TCODE; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":1256,"Y":532.5}}*/
+    entity TOBJT {
+            LANGU       : String(10) not null;
+        key OBJECT      : String(10) not null;
+            TTEXT       : String(60);
+            TO_ACT_AUTH : association[0..*] to ACT_AUTH on TO_ACT_AUTH.OBJECT = OBJECT; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":445,"Y":978.5}}*/
+    entity CUSTOMERS {
+        key CUST_ID            : String(10) not null;
+            COMPANY_NAME       : String(60) not null;
+            TO_LOGICAL_SYSTEMS : association[0..*] to LOGICAL_SYSTEMS on TO_LOGICAL_SYSTEMS.CUST_ID = CUST_ID; /*OUT*/
+            TO_USERS           : association[0..*] to USERS           on TO_USERS.CUST_ID = CUST_ID; /*OUT*/
+            TO_RULE_SET        : association[0..*] to RULE_SET        on TO_RULE_SET.CUST_ID = CUST_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":1145,"Y":937.5}}*/
+    entity LOGICAL_SYSTEMS {
+        key CUST_ID      : String(10) not null; /*ASSOCIATION*/
+        key SYS_ID       : String(60) not null;
+        key CLIENT_ID    : String(10) not null;
+            TO_CUSTOMERS : association[1] to CUSTOMERS on TO_CUSTOMERS.CUST_ID = CUST_ID; /*IN*/
+    };
+
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":72,"Y":813.5}}*/
+    entity USERS {
+        key CUST_ID                     : String(10) not null; /*ASSOCIATION*/
+        key USER_ID                     : String(60) not null;
+            FIRST_NAME                  : String(60) not null;
+            LAST_NAME                   : String(60) not null;
+            EMAIL                       : String(60) not null;
+            START_DATE                  : String(60);
+            END_DATE                    : String(60);
+            TIME_ZONE                   : String(10);
+            ADMIN_ACCESS                : Boolean;
+            TO_CUSTOMERS                : association[1]    to CUSTOMERS        on TO_CUSTOMERS.CUST_ID = CUST_ID; /*IN*/
+            TO_RULE_SET                 : association[0..*] to RULE_SET         on TO_RULE_SET.OWNER = USER_ID; /*OUT*/
+            TO_ACTIVITY                 : association[0..*] to ACTIVITY         on TO_ACTIVITY.OWNER = USER_ID; /*OUT*/
+            TO_TESTS                    : association[0..*] to TESTS            on TO_TESTS.OWNER = USER_ID; /*OUT*/
+            TO_BUSINESS_CONTROL_OWNER   : association[0..*] to BUSINESS_CONTROL on TO_BUSINESS_CONTROL_OWNER.OWNER = USER_ID; /*OUT*/
+            TO_BUSINESS_CONTROL_MONITOR : association[0..*] to BUSINESS_CONTROL on TO_BUSINESS_CONTROL_MONITOR.MONITOR = USER_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":33,"Y":9.5}}*/
+    entity RULE_SET {
+        key CUST_ID             : String(10) not null; /*ASSOCIATION*/
+        key RS_ID               : String(10) not null;
+            RS_NAME             : String(60) not null;
+            DESCRIPTION         : LargeString;
+            ACTIVE              : Boolean;
+            GLOBAL_OR_CUSTOMER  : String(60) not null;
+            OWNER               : String(60) not null; /*ASSOCIATION*/
+            WORKFLOW_FLAG       : Boolean;
+            TO_CUSTOMER         : association[1]    to CUSTOMERS        on TO_CUSTOMER.CUST_ID = CUST_ID; /*IN*/
+            TO_USERS            : association[1]    to USERS            on TO_USERS.USER_ID = OWNER; /*IN*/
+            TO_ACTIVITY         : association[0..*] to ACTIVITY         on TO_ACTIVITY.RS_ID = RS_ID; /*OUT*/
+            TO_TESTS            : association[0..*] to TESTS            on TO_TESTS.RS_ID = RS_ID; /*OUT*/
+            TO_RISKS            : association[0..*] to RISKS            on TO_RISKS.RS_ID = RS_ID; /*OUT*/
+            TO_RISK_RATING      : association[0..*] to RISK_RATING      on TO_RISK_RATING.RS_ID = RS_ID; /*OUT*/
+            TO_RISK_TEST        : association[0..*] to RISK_TEST        on TO_RISK_TEST.RS_ID = RS_ID; /*OUT*/
+            TO_BUSINESS_CONTROL : association[0..*] to BUSINESS_CONTROL on TO_BUSINESS_CONTROL.RS_ID = RS_ID; /*OUT*/
+
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":422,"Y":329.5}}*/
+    entity ACTIVITY {
+        key ACT_ID           : String(10) not null;
+            ACT_NAME         : String(60) not null;
+            RS_ID            : String(10) not null; /*ASSOCIATION*/
+            ACTIVE           : Boolean;
+            SEVERITY         : String(60) not null;
+            MODULE_ID        : String(10) not null; /*ASSOCIATION*/
+            SUB_MODULE_ID    : String(10); /*ASSOCIATION*/
+            OWNER            : String(60); /*ASSOCIATION*/
+            PROCESS_ID       : String(10); /*ASSOCIATION*/
+            SUB_PROCESS_ID   : String(10); /*ASSOCIATION*/
+            WORKFLOW_FLAG    : Boolean;
+            TO_RULE_SET      : association[1]    to RULE_SET      on TO_RULE_SET.RS_ID = RS_ID; /*IN*/
+            TO_MODULE        : association[1]    to MODULE        on TO_MODULE.MODULE_ID = MODULE_ID; /*IN*/
+            TO_SUB_MODULE    : association[1]    to SUB_MODULE    on TO_SUB_MODULE.SUB_MODULE_ID = SUB_MODULE_ID; /*IN*/
+            TO_USERS         : association[1]    to USERS         on TO_USERS.USER_ID = OWNER; /*IN*/
+            TO_PROCESSES     : association[1]    to PROCESSES     on TO_PROCESSES.PROCESS_ID = PROCESS_ID; /*IN*/
+            TO_SUB_PROCESSES : association[1]    to SUB_PROCESSES on TO_SUB_PROCESSES.SUB_PROCESS_ID = SUB_PROCESS_ID; /*IN*/
+            TO_ACT_TCODE     : association[0..*] to ACT_TCODE     on TO_ACT_TCODE.ACT_ID = ACT_ID; /*OUT*/
+            TO_ACT_AUTH      : association[0..*] to ACT_AUTH      on TO_ACT_AUTH.ACT_ID = ACT_ID; /*OUT*/
+            TO_TEST_ACTIVITY : association[0..*] to TEST_ACTIVITY on TO_TEST_ACTIVITY.ACT_ID = ACT_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":877,"Y":264.5}}*/
+    entity ACT_TCODE {
+        key ACT_ID       : String(10); /*ASSOCIATION*/
+            ACTIVE       : Boolean;
+        key TCODE        : String(20); /*ASSOCIATION*/
+        key GROUP_NUMBER : Integer not null;
+            TO_ACTIVITY  : association[1] to ACTIVITY on TO_ACTIVITY.ACT_ID = ACT_ID; /*IN*/
+            TO_TSTC      : association[1] to TSTC     on TO_TSTC.TCODE = TCODE; /*IN*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":927,"Y":511.5}}*/
+    entity ACT_AUTH {
+        key ACT_ID          : String(10) not null; /*ASSOCIATION*/
+        key GROUP_NUMBER    : Integer    not null;
+        key OBJECT          : String(60) not null; /*ASSOCIATION*/
+        key AUTH_FIELD      : String(20) not null;
+        key AUTH_VALUES_VON : String(20) not null;
+            AUTH_VALUES_BIS : String(20);
+            LOGIC_OPERATOR  : Integer    not null;
+            ACTIVE          : Boolean;
+            TO_ACTIVITY     : association[1] to ACTIVITY on TO_ACTIVITY.ACT_ID = ACT_ID; /*IN*/
+            TO_TOBJT        : association[1] to TOBJT    on TO_TOBJT.OBJECT = OBJECT; /*IN*/
+
+    };
+
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":-526,"Y":460.5}}*/
+    entity TESTS {
+        key TST_ID                    : String(10) not null;
+            TST_NAME                  : String(60) not null;
+        key RS_ID                     : String(10) not null; /*ASSOCIATION*/
+            ACTIVE                    : Boolean;
+            DESCRIPTION               : String(1000);
+            OWNER                     : String(60) not null; /*ASSOCIATION*/
+            WORKFLOW_FLAG             : Boolean;
+            TO_RULE_SET               : association[1]    to RULE_SET               on TO_RULE_SET.RS_ID = RS_ID; /*IN*/
+            TO_USERS                  : association[1]    to USERS                  on TO_USERS.USER_ID = OWNER; /*IN*/
+            TO_TEST_ACTIVITY          : association[0..*] to TEST_ACTIVITY          on TO_TEST_ACTIVITY.TST_ID = TST_ID; /*OUT*/
+            TO_RISK_TEST              : association[0..*] to RISK_TEST              on TO_RISK_TEST.TST_ID = TST_ID; /*OUT*/
+            TO_TESTS_BUSINESS_CONTROL : association[0..*] to TESTS_BUSINESS_CONTROL on TO_TESTS_BUSINESS_CONTROL.TST_ID = TST_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":-533,"Y":221.5}}*/
+    entity TEST_ACTIVITY {
+        key TST_ID      : String(10) not null; /*ASSOCIATION*/
+        key ACT_ID      : String(10) not null; /*ASSOCIATION*/
+            TO_TESTS    : association[1] to TESTS    on TO_TESTS.TST_ID = TST_ID; /*IN*/
+            TO_ACTIVITY : association[1] to ACTIVITY on TO_ACTIVITY.ACT_ID = ACT_ID; /*IN*/
+
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":186,"Y":-338.5}}*/
+    entity RISKS {
+        key RISK_ID       : String(10) not null;
+        key RS_ID         : String(10) not null; /*ASSOCIATION*/
+            RISK_NAME     : String(60) not null;
+            RISK_RATING   : String(60) /*NOT NULL*/; /*ADD BACK AFTER VALUES CONFIRMED*/ /*IS THIS REQUIRED?*/
+            RISK_CAT      : String(60) /*NOT NULL*/; /*ADD BACK AFTER VALUES CONFIRMED*/ /*IS THIS REQUIRED?*/
+            WORKFLOW_FLAG : Boolean;
+            TO_RULE_SET   : association[1] to RULE_SET  on TO_RULE_SET.RS_ID = RS_ID; /*IN*/
+            TO_RISK_TEST  : association[1] to RISK_TEST on TO_RISK_TEST.RISK_ID = RISK_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":-733,"Y":-73.5}}*/
+    entity RISK_RATING {
+        key RISK_RATING_ID              : String(10) not null; /*ASSOCIATION*/
+        key RS_ID                       : String(10) not null; /*ASSOCIATION*/
+            CONSEQUENCE                 : Integer    not null;
+            LIKELIHOOD                  : Integer    not null;
+            C_X_L                       : Integer    not null;
+            CL                          : Integer;
+            DEFAULT_MATRIX_RATING       : String(20);
+            RANGE                       : Integer;
+            DEFAULT_RISK_CLASSIFICATION : String(10);
+            DEFAULT_RISK_RANGE          : String(20);
+            TO_RULE_SET                 : association[1]    to RULE_SET  on TO_RULE_SET.RS_ID = RS_ID; /*IN*/
+            TO_RISK_TEST                : association[0..*] to RISK_TEST on TO_RISK_TEST.RISK_RATING_ID = RISK_RATING_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":-291,"Y":-388.5}}*/
+    entity RISK_TEST {
+        key RS_ID                        : String(10) not null; /*ASSOCIATION*/
+        key TST_ID                       : String(10) not null; /*ASSOCIATION*/
+        key RISK_ID                      : String(10) not null; /*ASSOCIATION*/
+        key RISK_RATING_ID               : String(10) not null; /*ASSOCIATION*/
+            ANNUALISED_LOSS_EXPECTANCY   : Decimal(15, 2);
+            ESTIMATED_ANNUALISED_LOSS    : Decimal(15, 2);
+            ALE_PROBABILITY              : Decimal(15, 10);
+            BEST_CASE_RISK_EVENT_IMPACT  : Decimal(15, 2);
+            EXPECTED_RISK_EVENT_IMPACT   : Decimal(15, 2);
+            WORST_CASE_RISK_EVENT_IMPACT : Decimal(15, 2);
+            BEST_CASE_RISK_EVENT_FREQ    : Decimal(15, 2);
+            EXPECTED_RISK_EVENT_FREQ     : Decimal(15, 2);
+            WORST_CASE_RISK_EVENT_FREQ   : Decimal(15, 2);
+            MONTECARLO_IMPACT            : Decimal(15, 2);
+            MONTECARLO_FREQ              : Decimal(15, 2);
+            DETERMINISTIC                : Decimal(15, 2);
+            MONTECARLO_OUTPUT            : Decimal(15, 2);
+            TO_RULE_SET                  : association[1] to RULE_SET    on TO_RULE_SET.RS_ID = RS_ID; /*IN*/
+            TO_TESTS                     : association[1] to TESTS       on TO_TESTS.TST_ID = TST_ID; /*IN*/
+            TO_RISKS                     : association[1] to RISKS       on TO_RISKS.RISK_ID = RISK_ID; /*IN*/
+            TO_RISK_RATING               : association[1] to RISK_RATING on TO_RISK_RATING.RISK_RATING_ID = RISK_RATING_ID; /*IN*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":-374,"Y":957.5}}*/
+    entity BUSINESS_CONTROL {
+        key BC_ID                     : String(10) not null;
+        key RS_ID                     : String(10) not null; /*ASSOCIATION*/
+            BC_NAME                   : String(60) not null;
+            ACTIVE                    : Boolean;
+            TYPE                      : String(60) not null;
+            PROGRAM                   : String(1000);
+            FREQUENCY                 : String(60) not null;
+            OWNER                     : String(60) not null; /*ASSOCIATION*/
+            PROCESS_ID                : String(10) not null; /*ASSOCIATION*/
+            SUB_PROCESS_ID            : String(10) not null; /*ASSOCIATION*/
+            DESCRIPTION               : String(1000);
+            VARIANT                   : String(60);
+            MONITOR                   : String(60) not null; /*ASSOCIATION*/
+            WORKFLOW_FLAG             : Boolean;
+            TO_RULE_SET               : association[1]    to RULE_SET               on TO_RULE_SET.RS_ID = RS_ID; /*IN*/
+            TO_USERS_OWNER            : association[1]    to USERS                  on TO_USERS_OWNER.USER_ID = OWNER; /*IN*/
+            TO_PROCESSES              : association[1]    to PROCESSES              on TO_PROCESSES.PROCESS_ID = PROCESS_ID; /*IN*/
+            TO_SUB_PROCESSES          : association[1]    to SUB_PROCESSES          on TO_SUB_PROCESSES.SUB_PROCESS_ID = SUB_PROCESS_ID; /*IN*/
+            TO_USERS_MONITOR          : association[1]    to USERS                  on TO_USERS_MONITOR.USER_ID = MONITOR; /*IN*/
+            TO_TESTS_BUSINESS_CONTROL : association[0..*] to TESTS_BUSINESS_CONTROL on TO_TESTS_BUSINESS_CONTROL.BC_ID = BC_ID; /*OUT*/
+    };
+
+    /*@@LAYOUT{"LAYOUTINFO":{"X":-789,"Y":882.5}}*/
+    entity TESTS_BUSINESS_CONTROL {
+        key TST_ID              : String(10); /*ASSOCIATION*/
+        key BC_ID               : String(10); /*ASSOCIATION*/
+            TO_TESTS            : association[1] to TESTS            on TO_TESTS.TST_ID = TST_ID; /*IN*/
+            TO_BUSINESS_CONTROL : association[1] to BUSINESS_CONTROL on TO_BUSINESS_CONTROL.BC_ID = BC_ID; /*IN*/
+    };
+
+    /**@@LAYOUT{"LAYOUTINFO":{"X":-789,"Y":882.5}}*/
+    entity UST12 {
+        MANDT : Integer;
+        OBJCT : String(60);
+        AUTH  : String(60);
+        AKTPS : String(60);
+        FIELD : String(60);
+        VON   : String(60);
+        BIS   : String(60);
+    };
+
+	entity TEST_WILDCARD_ACT {
+		AUTH_VALUE_VON : String(60);
+		AUTH_VALUE_BIS : String(60);
+	};
+
+	entity TEST_WILDCARD_UST12 {
+		VON : String(60);
+		BIS : String(60);
+	};
+
+
+    //------------------------------------------------------------------------------------------------------
+    	/*View to add an extra VON column into UST12 where all * values have been replaces with a %*/
+    	/*This is required to make the fuzzy matching logic to work*/
+    	
+    view UST12_CONVERT as
+        select from UST12 as A1
+        {
+            A1.OBJCT,
+            A1.AUTH,
+            A1.FIELD,
+            A1.VON,
+            replace("VON", '*', '%') "VON%",
+            A1.BIS,
+            replace("BIS", '*', '%') "BIS%"
+        };
+
+    //------------------------------------------------------------------------------------------------------
+    	/*View to add an extra AUTH_VALUES_VON column into ACT_AUTH where all * values have been replaces with a %*/
+		/*This is required to make the fuzzy matching logic to work*/
+		
+    view ACT_AUTH_CONVERT as
+        select from ACT_AUTH as A2
+        {
+            A2.ACT_ID,
+            A2.GROUP_NUMBER,
+            A2.OBJECT,
+            A2.AUTH_FIELD,
+            A2.AUTH_VALUES_VON,
+            replace("AUTH_VALUES_VON", '*', '%') "AUTH_VALUES_VON%",
+            A2.AUTH_VALUES_BIS,
+            replace("AUTH_VALUES_BIS", '*', '%') "AUTH_VALUES_BIS%",
+            A2.LOGIC_OPERATOR
+        };
+
+    //------------------------------------------------------------------------------------------------------
+		/*View produces a list of matches between a record in ACT_AUTH and UST12. */
+		
+		/*UST12 and ACT_AUTH are joined on FIELD in UST12 and FIELD in ACT_AUTH as well 
+		as OBJCT in UST12 and OBJECT in ACT_AUTH.  Different where clauses are then used 
+		in each select in the UNION to produce different types of matches required*/
+		
+		/*This is a UNION that combines 3 different queries*/
+	
+		/*This select in the UNION produces all matches that occur from a range values and direct matches. 
+		The where clause takes the VON value from ACT_AUTH and checks if it between VON and BIS in UST12 or, 
+		if the VON value from UST12 is between VON and BIS in ACT_AUTH this produces all range matches.  
+		The where clause also checks if VON in ACT_AUTH is equal to VON is UST12 producing all the direct value matches.*/
+	
+    view SCAN_P01_ALL_MATCHES as
+        select from UST12_CONVERT as A1
+        join (
+                    ACT_AUTH_CONVERT as A2
+        )                                  on
+                A1.FIELD = A2."AUTH_FIELD"
+            and A1.OBJCT = A2."OBJECT"
+        {
+            A1.OBJCT,
+            A1.AUTH,
+            A1.FIELD,
+            A1.VON,
+            A1."VON%",
+            A1.BIS,
+            A2.ACT_ID,
+            A2.GROUP_NUMBER,
+            A2.OBJECT,
+            A2.AUTH_FIELD,
+            A2.AUTH_VALUES_VON,
+            A2."AUTH_VALUES_VON%",//This is the converted VON field for the fuzzy matching
+            A2.AUTH_VALUES_BIS,
+            A2."LOGIC_OPERATOR"
+        }
+        where
+            (
+                (
+                    (A2."AUTH_VALUES_VON%") between A1."VON%" and A1."BIS%"
+                )
+            )
+            or (
+                (
+                    (A1."VON%")             between A2."AUTH_VALUES_VON%" and A2."AUTH_VALUES_BIS%"
+                )
+            )
+            or (
+                (
+                    A2.AUTH_VALUES_VON   =       A1.VON
+                )
+            )
+    union
+    
+		/*This select in the UNION produces a list of matches where the VON value in UST12 contains a wildcard value “*” 
+    	and where the BIS value for UST12 is null removing any ranges from the list of matches.  The Where clause then checks 
+    	and returns matches where the VON value in ACT_AUTH is like VON% (the converted VON field) in UST12 producing all fuzzy matching 
+    	records where a wildcard is used in UST12.
+    
+    	The where clause also checks if the VON value in UST12 is equal to “*” returning all matches that occur due to the VON value in UST12 being listed as “*” */
+    
+        select from UST12_CONVERT as A1
+        join (
+                    ACT_AUTH_CONVERT as A2
+        )                                  on
+                A1.FIELD = A2.AUTH_FIELD
+            and A1.OBJCT = A2.OBJECT
+        {
+            A1.OBJCT,
+            A1.AUTH,
+            A1.FIELD,
+            A1.VON,
+            A1."VON%",
+            A1.BIS,
+            A2.ACT_ID,
+            A2.GROUP_NUMBER,
+            A2.OBJECT,
+            A2.AUTH_FIELD,
+            A2.AUTH_VALUES_VON,
+            A2."AUTH_VALUES_VON%",
+            A2.AUTH_VALUES_BIS,
+            A2."LOGIC_OPERATOR"
+        }
+        where
+            (
+                (
+                    (A1.VON)             like '%*%'
+                )
+            )
+            and (
+                (
+                    A1.BIS               is   null
+                )
+            )
+            and (
+                (
+                    (A2.AUTH_VALUES_VON) like A1."VON%"
+                )
+            )
+            or (
+                (
+                    A1.VON               =    '*'
+                )
+            )
+    union
+    
+    	/*This select in the UNION produces a list of matches where the VON value in ACT_AUTH contains a wildcard value “*” 
+    	and where the BIS value for ACT_AUTH is null removing any ranges from the list of matches.  The Where clause then checks 
+    	and returns matches where the VON value in UST12 is like VON% (the converted VON field) in ACT_AUTH producing all fuzzy matching 
+    	records where a wildcard is used in ACT_AUTH.
+    
+    	The where clause also checks if the VON value in ACT_AUTH is equal to “*” returning all matches that occur due to the VON value in ACT_AUTH being listed as “*” */
+    
+    
+        select from ACT_AUTH_CONVERT as A2
+        join (
+                    UST12_CONVERT as A1
+        )                                  on
+                A2.AUTH_FIELD = A1.FIELD
+            and A2.OBJECT     = A1.OBJCT
+        {
+            A1.OBJCT,
+            A1.AUTH,
+            A1.FIELD,
+            A1.VON,
+            A1."VON%",
+            A1.BIS,
+            A2.ACT_ID,
+            A2.GROUP_NUMBER,
+            A2.OBJECT,
+            A2.AUTH_FIELD,
+            A2.AUTH_VALUES_VON,
+            A2."AUTH_VALUES_VON%",
+            A2.AUTH_VALUES_BIS,
+            A2."LOGIC_OPERATOR"
+        }
+        where
+            (
+                (
+                    (A2.AUTH_VALUES_VON) like '%*%'
+                )
+            )
+            and (
+                (
+                    A2.AUTH_VALUES_BIS   is   null
+                )
+            )
+            and (
+                (
+                    (A1.VON)             like A2."AUTH_VALUES_VON%"
+                )
+            )
+            or (
+                (
+                    A2.AUTH_VALUES_VON   =    '*'
+                )
+            );
+
+    //------------------------------------------------------------------------------------------------------
+
+		/*View produces a list of ACT_AUTH values where the values have been grouped by ACT_ID, GROUP_NUMBER, OBJECT, 
+		AUTH_FIELD and AUTH_VALUES_VON to produce a unique list of values and provide a count of VON values in ACT_AUTH.  
+		The where clause then limits the records to only those records that have a local operator of AND and are set to active.  
+
+		This view is required as the count field produces the field COUNT_OF_AUTH_VALUES which provides a value to compare the AUTH matches to.  
+		This same count process is applied to the records produced from SCAN_P01_ALL_MATCHES which then produces a COUNT_OF_AUTH_VALUES field for each AUTH.  
+		These tables are then joined on COUNT_OF_AUTH_VALUES, AUTH_FIELD, OBJECT, GROUP_NUMBER and ACT_ID to produce a list of matches where the 
+		correct number of values are true for an AUTH. This caters for the AND logical operator matches at a value level.*/
+
+    view SCAN_P02_AUTH_AND_VALUE_COUNT as 
+        select from ACT_AUTH as A2
+        {
+            A2.ACT_ID,
+            A2.GROUP_NUMBER,
+            A2.OBJECT,
+            A2.AUTH_FIELD,
+            count(A2.AUTH_VALUES_VON) as COUNT_OF_AUTH_VALUES,
+            A2.LOGIC_OPERATOR,
+            A2.ACTIVE
+        }
+        group by
+            A2.ACT_ID,
+            A2.GROUP_NUMBER,
+            A2.OBJECT,
+            A2.AUTH_FIELD,
+            A2.LOGIC_OPERATOR,
+            A2.ACTIVE
+        having
+            (
+                (
+                    (A2.LOGIC_OPERATOR) = '1'
+                )
+                and (
+                    (A2.ACTIVE)         = true
+                )
+            );
+
+    //------------------------------------------------------------------------------------------------------
+		/*View produces a list of SCAN_P01_ALL_MATCHES values where the values have been grouped by OBJCT, AUTH, 
+		FIELD, VON, BIS, ACT_ID, GROUP_NUMBER, OBJECT, AUTH_FIELD and LOGIC_OPERATOR to produce a unique list of 
+		values and provide a count of values matches in SCAN_P01_ALL_MATCHES.  The where clause then limits the records 
+		to only those records set to active.  
+
+		This view is required as the count field produces the field COUNT_OF_AUTH_VALUES which provides a value to compare the ACT_AUTH 
+		matches to.  This same count process is applied to the records produced from ACT_AUTH which then produces a COUNT_OF_AUTH_VALUES 
+		field for each AUTH.  These tables are then joined on COUNT_OF_AUTH_VALUES, AUTH_FIELD, OBJECT, GROUP_NUMBER and ACT_ID to produce
+		a list of matches where the correct number of values are true for an AUTH. This caters for the AND logical operator matches at a value level.*/
+		
+    view SCAN_P03_AND_VALUE_COUNT as
+        select from SCAN_P01_ALL_MATCHES as P1
+        {
+            P1.OBJCT,
+            P1.AUTH,
+            P1.FIELD,
+            P1.VON,
+            P1.BIS,
+            P1.ACT_ID,
+            P1.GROUP_NUMBER,
+            P1.OBJECT,
+            P1.AUTH_FIELD,
+            count(P1.AUTH_VALUES_VON) as COUNT_OF_AUTH_VALUES,
+            P1.LOGIC_OPERATOR
+        }
+        group by
+            P1.OBJCT,
+            P1.AUTH,
+            P1.FIELD,
+            P1.VON,
+            P1.BIS,
+            P1.ACT_ID,
+            P1.GROUP_NUMBER,
+            P1.OBJECT,
+            P1.AUTH_FIELD,
+            P1.LOGIC_OPERATOR
+        having
+            (
+                (
+                    (P1.LOGIC_OPERATOR) = 1
+                )
+            );
+
+    //------------------------------------------------------------------------------------------------------
+		/*This view joins SCAN_P02_AUTH_AND_VALUE_COUNT and SCAN_P03_AND_VALUE_COUNT  on COUNT_OF_AUTH_VALUES, 
+		AUTH_FIELD, OBJECT, GROUP_NUMBER and ACT_ID.  The join on COUNT_OF_AUTH_VALUES between the two tables 
+		ensures only AND match records are produces if they match all of the values specified in ACT_AUTH.  
+		By producing the COUNT_OF_AUTH_VALUES in both tables it provides a commonality between the two tables to 
+		compare and produce only true AND value matches. */
+		
+    view SCAN_P04_AND_VALUE_TRUE as
+        select from SCAN_P03_AND_VALUE_COUNT as P3
+        join (
+                    SCAN_P02_AUTH_AND_VALUE_COUNT as P2
+        )                                              on
+                P2.COUNT_OF_AUTH_VALUES = P3.COUNT_OF_AUTH_VALUES
+            and P2.AUTH_FIELD           = P3.AUTH_FIELD
+            and P2.OBJECT               = P3.OBJECT
+            and P2.GROUP_NUMBER         = P3.GROUP_NUMBER
+            and P2.ACT_ID               = P3.ACT_ID
+        {
+            P3.OBJCT,
+            P3.AUTH,
+            P3.FIELD,
+            P3.VON,
+            P3.BIS,
+            P3.ACT_ID,
+            P3.GROUP_NUMBER,
+            P3.OBJECT,
+            P3.AUTH_FIELD,
+            P2.COUNT_OF_AUTH_VALUES,
+            P3.LOGIC_OPERATOR
+        };
+
+    //------------------------------------------------------------------------------------------------------
+    	/*This view produces all value matches where the logical operator is OR.  This is any record in 
+    	SCAN_P01_ALL_MATCHES where the logical operator is 2.*/
+    
+    view SCAN_P05_OR_VALUE_TRUE as
+        select from SCAN_P01_ALL_MATCHES as P1
+        {
+            P1.OBJCT,
+            P1.AUTH,
+            P1.FIELD,
+            P1.VON,
+            P1.BIS,
+            P1.ACT_ID,
+            P1.GROUP_NUMBER,
+            P1.OBJECT,
+            P1.AUTH_FIELD,
+            P1.AUTH_VALUES_VON,
+            P1.AUTH_VALUES_BIS,
+            P1.LOGIC_OPERATOR
+        }
+        where
+            (
+                (
+                    (P1.LOGIC_OPERATOR) = '2'
+                )
+            );
+
+    //------------------------------------------------------------------------------------------------------
+		/*This view is a UNION of SCAN_P04_AND_VALUE_TRUE and SCAN_P05_OR_VALUE_TRUE to produce a full list of value matches.*/
+
+    view SCAN_P06_UNION_VALUE_TRUE as
+        select from SCAN_P03_AND_VALUE_COUNT as P3
+        join (
+                    SCAN_P02_AUTH_AND_VALUE_COUNT as P2
+        )                                              on
+                P2.COUNT_OF_AUTH_VALUES = P3.COUNT_OF_AUTH_VALUES
+            and P2.AUTH_FIELD           = P3.AUTH_FIELD
+            and P2.OBJECT               = P3.OBJECT
+            and P2.GROUP_NUMBER         = P3.GROUP_NUMBER
+            and P2.ACT_ID               = P3.ACT_ID
+        {
+            P3.OBJCT,
+            P3.AUTH,
+            P3.FIELD,
+            P3.VON,
+            P3.BIS,
+            P3.ACT_ID,
+            P3.GROUP_NUMBER,
+            P3.OBJECT,
+            P3.AUTH_FIELD,
+            P3.LOGIC_OPERATOR
+        }
+    union
+        select from SCAN_P01_ALL_MATCHES as P1
+        {
+            P1.OBJCT,
+            P1.AUTH,
+            P1.FIELD,
+            P1.VON,
+            P1.BIS,
+            P1.ACT_ID,
+            P1.GROUP_NUMBER,
+            P1.OBJECT,
+            P1.AUTH_FIELD,
+            P1.LOGIC_OPERATOR
+        }
+        where
+            (
+                (
+                    (P1.LOGIC_OPERATOR) = '2'
+                )
+            );
+
+    //------------------------------------------------------------------------------------------------------
+		/*This view produces a list of distinct AUTH_FIELD values from ACT_AUTH to then perform a count on the AUTH_FIELD field.*/
+	
+    view SCAN_P07_AUTH_FIELD as
+        select from ACT_AUTH distinct
+        {
+            ACT_AUTH.ACT_ID,
+            ACT_AUTH.GROUP_NUMBER,
+            ACT_AUTH.OBJECT,
+            ACT_AUTH.AUTH_FIELD,
+            ACT_AUTH.LOGIC_OPERATOR,
+            ACT_AUTH.ACTIVE
+        }
+        where
+            (
+                (
+                    (ACT_AUTH.ACTIVE) = true
+                )
+            );
+
+    //------------------------------------------------------------------------------------------------------
+		/*This view performs a count on AUTH_FIELD from the unique list of AUTH_FIELD values produces in SCAN_P07_AUTH_FIELD.
+	
+		This view is required as the count field produces the field COUNT_OF_AUTH_FIELD which provides a value to compare the AUTH matches to. 
+		The same count process is applied to the records produced from SCAN_P09_MATCH_FIELD which also produces COUNT_OF_AUTH_FIELD for 
+		each AUTH value match. These two tables are then joined on COUNT_OF_AUTH_FIELD, OBJECT, GROUP_NUMBER and ACT_ID to produce a list of 
+		matches were the correct number of fields are true for an AUTH.  This caters for matches that may occur due to there being multiple field 
+		within the authorisation object.*/
+	
+	
+    view SCAN_P08_AUTH_FIELD_COUNT as
+        select from SCAN_P07_AUTH_FIELD as P7
+        {
+            P7.ACT_ID,
+            P7.GROUP_NUMBER,
+            P7.OBJECT,
+            count(P7.AUTH_FIELD) as COUNT_OF_AUTH_FIELD,
+            P7.ACTIVE
+        }
+        group by
+            P7.ACT_ID,
+            P7.GROUP_NUMBER,
+            P7.OBJECT,
+            P7.ACTIVE;
+
+    //------------------------------------------------------------------------------------------------------
+		/*This view produces a list of distinct AUTH_FIELD values from SCAN_P06_UNION_VALUE_TRUE to then perform a count on the AUTH_FIELD field.*/	
+	
+	
+	view SCAN_P09_MATCH_FIELD as 
+		select from SCAN_P06_UNION_VALUE_TRUE distinct
+		{
+		OBJCT      ,
+        AUTH       ,
+        FIELD      ,
+        ACT_ID      ,
+        GROUP_NUMBER,
+        OBJECT     ,
+        AUTH_FIELD
+		};
+    //------------------------------------------------------------------------------------------------------
+		/*This view performs a count on AUTH_FIELD from the unique list of AUTH_FIELD values produces in SCAN_P09_MATCH_FIELD.
+	
+		This view is required as the count field produces the field COUNT_OF_AUTH_FIELD which provides a value to compare the AUTH matches to. 
+		The same count process is applied to the records produced from SCAN_P07_AUTH_FIELD which also produces COUNT_OF_AUTH_FIELD for 
+		each AUTH value match. These two tables are then joined on COUNT_OF_AUTH_FIELD, OBJECT, GROUP_NUMBER and ACT_ID to produce a list of 
+		matches were the correct number of fields are true for an AUTH.  This caters for matches that may occur due to there being multiple field 
+		within the authorisation object.*/
+	
+	view SCAN_P10_MATCH_FIELD_COUNT as
+		select from SCAN_P09_MATCH_FIELD as P9
+		{
+		P9.OBJCT      ,
+        P9.AUTH       ,
+        P9.ACT_ID      ,
+        P9.GROUP_NUMBER,
+        P9.OBJECT     ,
+        COUNT(P9.AUTH_FIELD) AS COUNT_OF_AUTH_FIELD
+		}
+	GROUP BY
+		P9.OBJCT      ,
+        P9.AUTH       ,
+        P9.ACT_ID      ,
+        P9.GROUP_NUMBER,
+        P9.OBJECT;
+
+    //------------------------------------------------------------------------------------------------------
+    	/*This view joins SCAN_P08_AUTH_FIELD_COUNT and SCAN_P10_MATCH_FIELD_COUNT on COUNT_OF_AUTH_FIELD, 
+		OBJECT, GROUP_NUMBER and ACT_ID.  The join on COUNT_OF_AUTH_FIELD between the two tables 
+		ensures only matches are made where all fields in the activity occur in the auth.
+		By producing the COUNT_OF_AUTH_FIELD in both tables it provides a commonality between the two tables to 
+		compare and produce only true FIELD matches. */
+    
+    view SCAN_P11_MATCH_FIELD_TRUE as
+    	select from SCAN_P10_MATCH_FIELD_COUNT as P10
+    	        join (
+                    SCAN_P08_AUTH_FIELD_COUNT as P8
+        )                                              on
+                P8.COUNT_OF_AUTH_FIELD = P10.COUNT_OF_AUTH_FIELD
+            and P8.OBJECT = P10.OBJECT
+            and P8.GROUP_NUMBER = P10.GROUP_NUMBER
+            and P8.ACT_ID = P10.ACT_ID
+    	{
+    	P10.OBJCT      ,
+        P10.AUTH       ,
+        P10.ACT_ID      ,
+        P10.GROUP_NUMBER,
+        P10.OBJECT     ,
+        P10.COUNT_OF_AUTH_FIELD
+    	};
+    //------------------------------------------------------------------------------------------------------
+};

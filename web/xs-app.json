@@ -1,7 +1,0 @@
-{
-	"welcomeFile": "index.html",
-	"authenticationMethod": "none",
-	"routes": [{
-		"source": "/java/odata/v4",
-		"destination": "odatav4_be" }]
-}
